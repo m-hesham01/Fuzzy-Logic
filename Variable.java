@@ -6,14 +6,14 @@ public class Variable {
     int lowerBound;
     int upperBound;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
+    int crispValue;
 
     public Variable() {}
-    public Variable (String name, String type, int lowerBound, int upperBound, ArrayList<FuzzySet> F) {
+    public Variable (String name, String type, int lowerBound, int upperBound) {
         this.name = name;
         this.type = type;
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
-        fuzzySets = F;
     }
 
     public String getName() {
@@ -55,6 +55,14 @@ public class Variable {
 
     public void setFuzzySets (ArrayList<FuzzySet> F){
         fuzzySets = F;
+    }
+
+    public int getCrispValue() {
+        return crispValue;
+    }
+
+    public void setCrispValue(int crispValue) {
+        this.crispValue = crispValue;
     }
 
 }

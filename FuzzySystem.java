@@ -7,11 +7,9 @@ public class FuzzySystem {
     ArrayList <Rule> systemRules = new ArrayList<>();
 
     public FuzzySystem () {}
-    public FuzzySystem (String name, String desc, ArrayList<Variable> V, ArrayList<Rule> R) {
+    public FuzzySystem (String name, String desc) {
         this.name = name;
         this.desc = desc;
-        systemVars = V;
-        systemRules = R;
     }
 
     public String getName() {
