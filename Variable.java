@@ -1,10 +1,20 @@
+import java.util.ArrayList;
+
 public class Variable {
     String name;
     String type;
     int lowerBound;
     int upperBound;
+    ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
 
     public Variable() {}
+    public Variable (String name, String type, int lowerBound, int upperBound, ArrayList<FuzzySet> F) {
+        this.name = name;
+        this.type = type;
+        this.lowerBound = lowerBound;
+        this.upperBound = upperBound;
+        fuzzySets = F;
+    }
 
     public String getName() {
         return name;
@@ -37,6 +47,14 @@ public class Variable {
 
     public void setUpperBound(int upperBound) {
         this.upperBound = upperBound;
+    }
+
+    public ArrayList<FuzzySet> getFuzzySets() {
+        return fuzzySets;
+    }
+
+    public void setFuzzySets (ArrayList<FuzzySet> F){
+        fuzzySets = F;
     }
 
 }

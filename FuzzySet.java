@@ -1,9 +1,19 @@
 public class FuzzySet {
     String name;
     String type;
+    int N;                              //size of the Values[] array... 3 if type=TRI and 4 if type =TRAP
     int Values[];
 
     public FuzzySet() {}
+    public FuzzySet(String name, String type, int V[]) {
+        this.name = name;
+        this.type = type;
+        setN();
+        Values = new int[N];
+        for (int i=0; i< N; i++){
+            Values[i] = V[i];
+        }
+    }
     
     public String getName() {
         return name;
@@ -19,5 +29,26 @@ public class FuzzySet {
 
     public void setType(String type){
         this.type = type;
+    }
+
+    public int[] getValues(){
+        return Values;
+    }
+
+    public void setN(){         //add invalidity check later
+        if (type == "tri"){
+            N = 3;
+        }
+        if (type == "trap"){
+            N = 4;
+        }
+    }
+
+    public void setValues(int V[]){
+        setN();
+        Values = new int[N];
+        for (int i=0; i< N; i++){
+            Values[i] = V[i];
+        }
     }
 }

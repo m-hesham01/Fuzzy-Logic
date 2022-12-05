@@ -3,9 +3,16 @@ import java.util.ArrayList;
 public class FuzzySystem {
     String name;
     String desc;
-    ArrayList <Variable> SystemVars = new ArrayList<>();
+    ArrayList <Variable> systemVars = new ArrayList<>();
+    ArrayList <Rule> systemRules = new ArrayList<>();
 
     public FuzzySystem () {}
+    public FuzzySystem (String name, String desc, ArrayList<Variable> V, ArrayList<Rule> R) {
+        this.name = name;
+        this.desc = desc;
+        systemVars = V;
+        systemRules = R;
+    }
 
     public String getName() {
         return name;
@@ -22,4 +29,21 @@ public class FuzzySystem {
     public void setDesc(String desc){
         this.desc = desc;
     }
+
+    public ArrayList<Variable> getSystemVariables(){
+        return systemVars;
+    }
+
+    public void setSystemVariables(ArrayList<Variable> V){
+        systemVars = V;
+    }
+
+    public ArrayList<Rule> getSystemRules (){
+        return systemRules;
+    }
+
+    public void setSystemRules (ArrayList<Rule> R) {
+        systemRules = R;
+    }
+
 }
