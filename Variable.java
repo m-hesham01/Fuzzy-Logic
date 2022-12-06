@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class Variable {
     String name;
-    String type;
+    Boolean type;
     int lowerBound;
     int upperBound;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
     int crispValue;
 
     public Variable() {}
-    public Variable (String name, String type, int lowerBound, int upperBound) {
+    public Variable (String name, Boolean type, int lowerBound, int upperBound) {
         this.name = name;
         this.type = type;
         this.lowerBound = lowerBound;
@@ -24,11 +24,11 @@ public class Variable {
         this.name = name;
     }
 
-    public String getType() {
+    public Boolean getType() {
         return type;
     }
 
-    public void setType(String type){
+    public void setType(Boolean type){
         this.type = type;
     }
 
