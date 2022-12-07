@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String args[]) {
-        FuzzySystem testSystem = new FuzzySystem("Project Risk Estimaation", "This is a test fuzzy system");
+        FuzzySystem testSystem = new FuzzySystem("Project Risk Estimation", "This is a test fuzzy system");
 
         ArrayList<Variable> V = new ArrayList<> ();
         Variable var1 = new Variable("proj_funding", true, 0, 100, 4);
@@ -70,5 +70,7 @@ public class Main {
 
         testSystem.setSystemVariables(V);
         testSystem.setSystemRules(R);
+
+        testSystem.startFuzzification();
     }
 }

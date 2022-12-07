@@ -44,4 +44,9 @@ public class FuzzySystem {
         systemRules = R;
     }
 
+    public void startFuzzification(){
+        Fuzzifier fazfoz = new Fuzzifier(systemVars);
+        systemVars = fazfoz.calculateMembership();
+    }
+
 }

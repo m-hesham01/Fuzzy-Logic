@@ -3,7 +3,7 @@ public class FuzzySet {
     String type;
     int N;                              //size of the Values[] array... 3 if type=TRI and 4 if type =TRAP
     int Values[];
-
+    float membership;
     public FuzzySet() {}
     public FuzzySet(String name, String type, int V[]) {
         this.name = name;
@@ -35,6 +35,14 @@ public class FuzzySet {
         return Values;
     }
 
+    public void setValues(int V[]){
+        setN();
+        Values = new int[N];
+        for (int i=0; i< N; i++){
+            Values[i] = V[i];
+        }
+    }
+
     public void setN(){         //TODO: add invalidity check later... maybe in parser??
         if (type == "tri"){
             N = 3;
@@ -48,11 +56,10 @@ public class FuzzySet {
         return N;
     }
 
-    public void setValues(int V[]){
-        setN();
-        Values = new int[N];
-        for (int i=0; i< N; i++){
-            Values[i] = V[i];
-        }
+    public float getMembership() {
+        return membership;
+    }
+    public void setMembership(float membership) {
+        this.membership = membership;
     }
 }

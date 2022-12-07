@@ -19,7 +19,7 @@ public class Variable {
         this.NumOfSets = NumOfSets;
         memberships = new float[NumOfSets];
         for (int i = 0; i < NumOfSets; i++){
-            memberships[i] = 0.0;
+            memberships[i] = 0;
         }
     }
 
@@ -47,7 +47,6 @@ public class Variable {
         this.lowerBound = lowerBound;
     }
 
-
     public int getUpperBound() {
         return upperBound;
     }
@@ -56,12 +55,29 @@ public class Variable {
         this.upperBound = upperBound;
     }
 
+    public int getNumOfSets() {
+        return NumOfSets;
+    }
+    public void setNumOfSets(int numOfSets) {
+        NumOfSets = numOfSets;
+    }
+
     public ArrayList<FuzzySet> getFuzzySets() {
         return fuzzySets;
     }
 
     public void setFuzzySets (ArrayList<FuzzySet> F){
         fuzzySets = F;
+    }
+
+    public void setMembership(float[] M){
+        for (int i = 0; i < NumOfSets; i++){
+            memberships[i] = M[i];
+        }
+    }
+
+    public float[] getMembership(){
+        return memberships;
     }
 
     public int getCrispValue() {

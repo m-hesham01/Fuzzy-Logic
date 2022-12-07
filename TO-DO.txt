@@ -5,7 +5,7 @@ Parser:
 - to_lower_case everything
 
 - Variable type: check (IN/OUT) only
-- Variable range: parse to 2 separate INTEGER values
+- Variable range: to 2 separate INTEGER values
 - Variable crispValue : check is in range
 
 - Sets type: check (TRI/TRAP) only
@@ -13,3 +13,7 @@ Parser:
 - Sets values: ensure number of values is correct to the corresponding chosen type
 
 - Rules operator: check (AND/OR) only 
+- Rules set: check parameter set belongs to corresponding variable
+
+
+possibility that for-each loop mebawwaza haga f setting el membership
