@@ -7,7 +7,6 @@ public class Variable {
     int upperBound;
     int NumOfSets;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
-    float[] memberships;
     int crispValue;
 
     public Variable() {}
@@ -17,10 +16,6 @@ public class Variable {
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
         this.NumOfSets = NumOfSets;
-        memberships = new float[NumOfSets];
-        for (int i = 0; i < NumOfSets; i++){
-            memberships[i] = 0;
-        }
     }
 
     public String getName() {
