@@ -5,7 +5,6 @@ public class Variable {
     boolean type;
     int lowerBound;
     int upperBound;
-    int NumOfSets;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
     int crispValue;
 
@@ -15,7 +14,6 @@ public class Variable {
         this.type = type;
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
-        this.NumOfSets = NumOfSets;
     }
 
     public String getName() {
@@ -50,13 +48,6 @@ public class Variable {
         this.upperBound = upperBound;
     }
 
-    public int getNumOfSets() {
-        return NumOfSets;
-    }
-    public void setNumOfSets(int numOfSets) {
-        NumOfSets = numOfSets;
-    }
-
     public ArrayList<FuzzySet> getFuzzySets() {
         return fuzzySets;
     }
@@ -64,17 +55,7 @@ public class Variable {
     public void setFuzzySets (ArrayList<FuzzySet> F){
         fuzzySets = F;
     }
-
-    public void setMembership(float[] M){
-        for (int i = 0; i < NumOfSets; i++){
-            memberships[i] = M[i];
-        }
-    }
-
-    public float[] getMembership(){
-        return memberships;
-    }
-
+    
     public int getCrispValue() {
         return crispValue;
     }

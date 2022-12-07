@@ -4,6 +4,7 @@ public class FuzzySet {
     int N;                              //size of the Values[] array... 3 if type=TRI and 4 if type =TRAP
     int Values[];
     float membership;
+
     public FuzzySet() {}
     public FuzzySet(String name, String type, int V[]) {
         this.name = name;
