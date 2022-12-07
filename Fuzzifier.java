@@ -31,7 +31,7 @@ public class Fuzzifier {
                                 pointBY = 1;
                             }
                             float temp = calculateGraphRule(pointAX, pointAY, pointBX, pointBY, f.getCrispValue());
-                            System.out.println("Membership of variable " + f.getName() + "to the set " + f.getFuzzySets().get(i).getName() + "is " + temp);
+                            System.out.println("Membership of variable " + f.getName() + " to the set " + f.getFuzzySets().get(i).getName() + " is " + temp);
                             f.getFuzzySets().get(i).setMembership(temp);
                         }
                     }

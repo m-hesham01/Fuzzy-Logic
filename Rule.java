@@ -12,37 +12,40 @@ public class Rule {
 
     public Rule(String firstInVarName, String firstVarSetName, String operator, String secondInVarName,
             String secondVarSetName, String outVarName, String outVarSetName, ArrayList<Variable> V) {
+
+        systemVars = V;
+
         // matching variables
         for (int i = 0; i < systemVars.size(); i++) {
-            if (systemVars.get(i).getName() == firstInVarName) {
+            if (firstInVarName.equals(systemVars.get(i).getName())) {
                 firstInVar = systemVars.get(i);
             }
         }
         for (int i = 0; i < systemVars.size(); i++) {
-            if (systemVars.get(i).getName() == secondInVarName) {
+            if (secondInVarName.equals(systemVars.get(i).getName())) {
                 secondInVar = systemVars.get(i);
             }
         }
         for (int i = 0; i < systemVars.size(); i++) {
-            if (systemVars.get(i).getName() == outVarName) {
+            if (outVarName.equals(systemVars.get(i).getName())) {
                 outVar = systemVars.get(i);
             }
         }
 
         // matching fuzzy sets within variables
-        for (int i = 0; i < firstInVar.getFuzzySets().size(); i++) {
-            if (firstInVar.getFuzzySets().get(i).getName() == firstVarSetName) {
-                firstVarSet = firstInVar.getFuzzySets().get(i);
+        for (int j = 0; j < firstInVar.getFuzzySets().size(); j++){
+            if (firstVarSetName.equals(firstInVar.getFuzzySets().get(j).getName())){
+                firstVarSet = firstInVar.getFuzzySets().get(j);
             }
         }
-        for (int i = 0; i < secondInVar.getFuzzySets().size(); i++) {
-            if (secondInVar.getFuzzySets().get(i).getName() == secondVarSetName) {
-                secondVarSet = secondInVar.getFuzzySets().get(i);
+        for (int j = 0; j < secondInVar.getFuzzySets().size(); j++){
+            if (secondVarSetName.equals(secondInVar.getFuzzySets().get(j).getName())){
+                secondVarSet = secondInVar.getFuzzySets().get(j);
             }
         }
-        for (int i = 0; i < outVar.getFuzzySets().size(); i++) {
-            if (outVar.getFuzzySets().get(i).getName() == outVarSetName) {
-                outVarSet = outVar.getFuzzySets().get(i);
+        for (int j = 0; j < outVar.getFuzzySets().size(); j++){
+            if (outVarSetName.equals(outVar.getFuzzySets().get(j).getName())){
+                outVarSet = outVar.getFuzzySets().get(j);
             }
         }
 
