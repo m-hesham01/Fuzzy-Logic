@@ -2,18 +2,25 @@ import java.util.ArrayList;
 
 public class Variable {
     String name;
-    String type;
+    boolean type;
     int lowerBound;
     int upperBound;
+    int NumOfSets;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
+    float[] memberships;
     int crispValue;
 
     public Variable() {}
-    public Variable (String name, String type, int lowerBound, int upperBound) {
+    public Variable (String name, boolean type, int lowerBound, int upperBound, int NumOfSets) {
         this.name = name;
         this.type = type;
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
+        this.NumOfSets = NumOfSets;
+        memberships = new float[NumOfSets];
+        for (int i = 0; i < NumOfSets; i++){
+            memberships[i] = 0.0;
+        }
     }
 
     public String getName() {
@@ -24,11 +31,11 @@ public class Variable {
         this.name = name;
     }
 
-    public String getType() {
+    public boolean getType() {
         return type;
     }
 
-    public void setType(String type){
+    public void setType(boolean type){
         this.type = type;
     }
 

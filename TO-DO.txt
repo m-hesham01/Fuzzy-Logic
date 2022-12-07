@@ -1,17 +1,11 @@
 TODO:
 
-Rules:
-- class under construction
-
-
-
-
 Parser:
 - basic paser functionalities
 - to_lower_case everything
 
 - Variable type: check (IN/OUT) only
-- Variable range: to 2 separate INTEGER values
+- Variable range: parse to 2 separate INTEGER values
 - Variable crispValue : check is in range
 
 - Sets type: check (TRI/TRAP) only

@@ -44,6 +44,10 @@ public class FuzzySet {
         }
     }
 
+    public int getArraySize(){
+        return N;
+    }
+
     public void setValues(int V[]){
         setN();
         Values = new int[N];

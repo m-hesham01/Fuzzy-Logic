@@ -5,9 +5,9 @@ public class Main {
         FuzzySystem testSystem = new FuzzySystem("Project Risk Estimaation", "This is a test fuzzy system");
 
         ArrayList<Variable> V = new ArrayList<> ();
-        Variable var1 = new Variable("proj_funding", "in", 0, 100);
-        Variable var2 = new Variable("exp_level", "in", 0, 60);
-        Variable var3 = new Variable("risk", "out", 0, 100);
+        Variable var1 = new Variable("proj_funding", true, 0, 100, 4);
+        Variable var2 = new Variable("exp_level", true, 0, 60, 3);
+        Variable var3 = new Variable("risk", false, 0, 100, 3);
 
         ArrayList<FuzzySet> fundFuz = new ArrayList<> ();
         int[] fundArr1 = new int [] {0, 0, 10, 30};
