@@ -7,7 +7,7 @@ public class Fuzzifier {
         fuzzifiables = fuzz;
     }
 
-    public float calculateGraphRule (int AX, float AY, int BX, float BY, int x){
+    public float calculateGraphRule (float AX, float AY, float BX, float BY, int x){
         float m = (BY - AY) / (BX - AX);
         float c = AY - (m * AX);
         float y = (m * x) + c;
@@ -20,8 +20,8 @@ public class Fuzzifier {
                 for (int i = 0; i < f.getFuzzySets().size(); i++){
                     for (int j = 0; j < f.getFuzzySets().get(i).getArraySize()-1; j++){
                         if( (f.getCrispValue() >= f.getFuzzySets().get(i).getValues()[j]) && (f.getCrispValue() < f.getFuzzySets().get(i).getValues()[j+1]) ){
-                            int pointAX = f.getFuzzySets().get(i).getValues()[j];
-                            int pointBX = f.getFuzzySets().get(i).getValues()[j+1];
+                            float pointAX = f.getFuzzySets().get(i).getValues()[j];
+                            float pointBX = f.getFuzzySets().get(i).getValues()[j+1];
                             float pointAY = 0;
                             float pointBY = 0;
                             if (j!= 0){
