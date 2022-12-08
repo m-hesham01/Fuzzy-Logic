@@ -5,7 +5,6 @@ public class FuzzySystem {
     String desc;
     ArrayList <Variable> systemVars = new ArrayList<>();
     ArrayList <Rule> systemRules = new ArrayList<>();
-    ArrayList <Variable> outputVars = new ArrayList<>();
 
     public FuzzySystem () {}
     public FuzzySystem (String name, String desc) {

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public abstract class Fuzzifier {
-    public static float calculateGraphRule (float AX, float AY, float BX, float BY, int x){
+    public static float calculateGraphRule (float AX, float AY, float BX, float BY, float x){
         float m = (BY - AY) / (BX - AX);
         float c = AY - (m * AX);
         float y = (m * x) + c;

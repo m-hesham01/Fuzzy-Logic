@@ -6,7 +6,7 @@ public class Variable {
     int lowerBound;
     int upperBound;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
-    int crispValue;
+    float crispValue;
 
     public Variable() {}
     public Variable (String name, boolean type, int lowerBound, int upperBound, int NumOfSets) {
@@ -56,11 +56,11 @@ public class Variable {
         fuzzySets = F;
     }
     
-    public int getCrispValue() {
+    public float getCrispValue() {
         return crispValue;
     }
 
-    public void setCrispValue(int crispValue) {
+    public void setCrispValue(float crispValue) {
         this.crispValue = crispValue;
     }
 

@@ -8,6 +8,7 @@ public class Main {
         Variable var1 = new Variable("proj_funding", true, 0, 100, 4);
         Variable var2 = new Variable("exp_level", true, 0, 60, 3);
         Variable var3 = new Variable("risk", false, 0, 100, 3);
+        Variable var4 = new Variable("riskyyyy", false, 0, 200, 3);
 
         ArrayList<FuzzySet> fundFuz = new ArrayList<>();
         int[] fundArr1 = new int[] { 0, 0, 10, 30 };
@@ -49,12 +50,26 @@ public class Main {
         riskFuz.add(fuz10);
         var3.setFuzzySets(riskFuz);
 
+        ArrayList<FuzzySet> riskyFuz = new ArrayList<>();
+        int[] riskyArr1 = new int[] { 0, 50, 100 };
+        int[] riskyArr2 = new int[] { 50, 100, 150 };
+        int[] riskyArr3 = new int[] { 100, 200, 200 };
+
+        FuzzySet fuz11 = new FuzzySet("low", "tri", riskyArr1);
+        FuzzySet fuz12 = new FuzzySet("normal", "tri", riskyArr2);
+        FuzzySet fuz13 = new FuzzySet("high", "tri", riskyArr3);
+        riskyFuz.add(fuz11);
+        riskyFuz.add(fuz12);
+        riskyFuz.add(fuz13);
+        var4.setFuzzySets(riskyFuz);
+
         var1.setCrispValue(50);
         var2.setCrispValue(40);
 
         V.add(var1);
         V.add(var2);
         V.add(var3);
+        V.add(var4);
 
         ArrayList<Rule> R = new ArrayList<>();
         Rule r1 = new Rule("proj_funding", "high", "or", "exp_level", "expert", "risk", "low", V);
@@ -62,25 +77,32 @@ public class Main {
         Rule r3 = new Rule("proj_funding", "medium", "and", "exp_level", "beginner", "risk", "normal", V);
         Rule r4 = new Rule("proj_funding", "low", "and", "exp_level", "beginner", "risk", "high", V);
         Rule r5 = new Rule("proj_funding", "very_low", "and_not", "exp_level", "expert", "risk", "high", V);
+        Rule r6 = new Rule("proj_funding", "high", "or", "exp_level", "expert", "riskyyyy", "low", V);
+        Rule r7 = new Rule("proj_funding", "medium", "and", "exp_level", "intermediate", "riskyyyy", "normal", V);
+        Rule r8 = new Rule("proj_funding", "medium", "and", "exp_level", "beginner", "riskyyyy", "normal", V);
+        Rule r9 = new Rule("proj_funding", "low", "and", "exp_level", "beginner", "riskyyyy", "high", V);
+        Rule r10 = new Rule("proj_funding", "very_low", "and_not", "exp_level", "expert", "riskyyyy", "high", V);
         R.add(r1);
         R.add(r2);
         R.add(r3);
         R.add(r4);
         R.add(r5);
+        R.add(r6);
+        R.add(r7);
+        R.add(r8);
+        R.add(r9);
+        R.add(r10);
 
-        ArrayList<Variable> outVar = new ArrayList<>();
-        outVar.add(var3);
 
         testSystem.setSystemVariables(V);
         testSystem.setSystemRules(R);
 
-        testSystem.outputVars = outVar;
-
         testSystem = Fuzzifier.calculateMembership(testSystem);       
         testSystem = Inference.applyRules(testSystem);
+        testSystem = Defuzzifier.defuzzifyOutput(testSystem);
 
 
-        //testing fuzzifier
+        //testing output
         for (int i = 0; i < testSystem.getSystemVariables().size(); i++){
             System.out.println("The crisp value for the variable " + testSystem.getSystemVariables().get(i).getName() + " is " + testSystem.getSystemVariables().get(i).getCrispValue());
             System.out.println("The membership values to its fuzzy sets:");
@@ -89,7 +111,5 @@ public class Main {
                     }
                     System.out.println();
         }
-
-        // Defuzzifier.calcCentroids(testSystem);
     }
 }
