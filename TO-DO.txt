@@ -1,11 +1,5 @@
 TODO:
 
-Rules:
-- class under construction
-
-
-
-
 Parser:
 - basic paser functionalities
 - to_lower_case everything
@@ -19,3 +13,7 @@ Parser:
 - Sets values: ensure number of values is correct to the corresponding chosen type
 
 - Rules operator: check (AND/OR) only 
+- Rules set: check parameter set belongs to corresponding variable
+
+
+possibility that for-each loop mebawwaza haga f setting el membership

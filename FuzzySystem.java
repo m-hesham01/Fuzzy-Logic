@@ -46,5 +46,4 @@ public class FuzzySystem {
     public void setSystemRules (ArrayList<Rule> R) {
         systemRules = R;
     }
-
 }

@@ -2,17 +2,20 @@ public class FuzzySet {
     String name;
     String type;
     int N;                              //size of the Values[] array... 3 if type=TRI and 4 if type =TRAP
-    int Values[];
+    float Values[];
+    float membership;
+    float centroid;
 
     public FuzzySet() {}
     public FuzzySet(String name, String type, int V[]) {
         this.name = name;
         this.type = type;
         setN();
-        Values = new int[N];
+        Values = new float[N];
         for (int i=0; i< N; i++){
             Values[i] = V[i];
         }
+        calculateCentroid();
     }
     
     public String getName() {
@@ -31,11 +34,19 @@ public class FuzzySet {
         this.type = type;
     }
 
-    public int[] getValues(){
+    public float[] getValues(){
         return Values;
     }
 
-    public void setN(){         //TODO: add invalidity check later... maybe in parser??
+    public void setValues(int V[]){
+        setN();
+        Values = new float[N];
+        for (int i=0; i< N; i++){
+            Values[i] = V[i];
+        }
+    }
+
+    public void setN(){
         if (type == "tri"){
             N = 3;
         }
@@ -44,11 +55,25 @@ public class FuzzySet {
         }
     }
 
-    public void setValues(int V[]){
-        setN();
-        Values = new int[N];
-        for (int i=0; i< N; i++){
-            Values[i] = V[i];
+    public int getArraySize(){
+        return N;
+    }
+
+    public float getMembership() {
+        return membership;
+    }
+    public void setMembership(float membership) {
+        this.membership = membership;
+    }
+
+    public float getCentroid() {
+        return centroid;
+    }
+    public void calculateCentroid() {
+        float sum = 0;
+        for (int i = 0; i < N; i++){
+            sum += Values[i];
         }
+        centroid = sum / N;
     }
 }
