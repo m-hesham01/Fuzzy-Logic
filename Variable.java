@@ -9,9 +9,13 @@ public class Variable {
     float crispValue;
 
     public Variable() {}
-    public Variable (String name, boolean type, int lowerBound, int upperBound, int NumOfSets) {
+    public Variable (String name, String type, int lowerBound, int upperBound) {
         this.name = name;
-        this.type = type;
+        if (type.equals("IN")){
+            this.type=true;
+        } else if (type.equals("OUT")) {
+            this.type=false;
+        }
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
     }
@@ -55,7 +59,9 @@ public class Variable {
     public void setFuzzySets (ArrayList<FuzzySet> F){
         fuzzySets = F;
     }
-    
+    public void addFuzzySet(FuzzySet fazfooz){
+        this.fuzzySets.add(fazfooz);
+    }
     public float getCrispValue() {
         return crispValue;
     }

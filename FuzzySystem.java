@@ -11,7 +11,48 @@ public class FuzzySystem {
     public FuzzySystem (String name, String desc, Parser parser) throws FileNotFoundException {
         this.name = name;
         this.desc = desc;
-        ArrayList<ArrayList<ArrayList<String>>> data= parser.parse();
+        ArrayList<ArrayList<ArrayList<String>>> data = parser.parse();
+        for(int i=0 ;i<2;i++){
+            for(ArrayList<String> typedData: data.get(i)){
+                if (i==0){ //variables
+                    Variable variable = new Variable(typedData.get(0),typedData.get(1),Integer.parseInt(typedData.get(2)),Integer.parseInt(typedData.get(3)));
+                    if (variable.getType()){
+                        variable.setCrispValue(Float.parseFloat(typedData.get(typedData.size()-1)));
+                    }
+                    int j = 4;
+                    String TRI = "TRI";
+                    String TRAP = "TRAP";
+                    while (j<typedData.size()-1){
+                        String shapeType = typedData.get(j+1);
+//                        System.out.println(typedData.get(j+1));
+//                        System.out.println(typedData.get(j+i).equals(TRI));
+
+                        if (shapeType.equals(TRI)){
+                            float values[] = new float[3];
+                            values[0]=Float.parseFloat(typedData.get(j+2));
+                            values[1]=Float.parseFloat(typedData.get(j+3));
+                            values[2]=Float.parseFloat(typedData.get(j+4));
+                            FuzzySet fuzzySet = new FuzzySet(typedData.get(j),typedData.get(j+1),values);
+                            variable.addFuzzySet(fuzzySet);
+                            j = j+5;
+                        } else if (shapeType.equals(TRAP)) {
+                            float values[] = new float[4];
+                            values[0]=Float.parseFloat(typedData.get(j+2));
+                            values[1]=Float.parseFloat(typedData.get(j+3));
+                            values[2]=Float.parseFloat(typedData.get(j+4));
+                            values[3]=Float.parseFloat(typedData.get(j+5));
+                            FuzzySet fuzzySet = new FuzzySet(typedData.get(j),typedData.get(j+1),values);
+                            variable.addFuzzySet(fuzzySet);
+                            j=j+6;
+                        }
+                    }
+                    this.systemVars.add(variable);
+                } else if (i==1) {//rules
+                    Rule rule = new Rule(typedData.get(0),typedData.get(1),typedData.get(2),typedData.get(3),typedData.get(4),typedData.get(6),typedData.get(7),this.systemVars);
+                    this.addSystemRules(rule);
+                }
+            }
+        }
 
     }
 
@@ -42,8 +83,10 @@ public class FuzzySystem {
     public ArrayList<Rule> getSystemRules (){
         return systemRules;
     }
-
     public void setSystemRules (ArrayList<Rule> R) {
         systemRules = R;
+    }
+    public void addSystemRules(Rule rule){
+        this.systemRules.add(rule);
     }
 }

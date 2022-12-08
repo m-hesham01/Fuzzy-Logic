@@ -7,7 +7,7 @@ public class FuzzySet {
     float centroid;
 
     public FuzzySet() {}
-    public FuzzySet(String name, String type, int V[]) {
+    public FuzzySet(String name, String type, float V[]) {
         this.name = name;
         this.type = type;
         setN();
@@ -47,10 +47,10 @@ public class FuzzySet {
     }
 
     public void setN(){
-        if (type == "tri"){
+        if (type.equals("TRI")){
             N = 3;
         }
-        if (type == "trap"){
+        if (type.equals("TRAP")){
             N = 4;
         }
     }
