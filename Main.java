@@ -76,7 +76,17 @@ public class Main {
 
         testSystem.outputVars = outVar;
 
-        testSystem.startFuzzification();
+        testSystem = Fuzzifier.calculateMembership(testSystem);
+
+        // //testing fuzzifier
+        // for (int i = 0; i < testSystem.getSystemVariables().size(); i++){
+        //     System.out.println("The crisp value for the variable " + testSystem.getSystemVariables().get(i).getName() + " is " + testSystem.getSystemVariables().get(i).getCrispValue());
+        //     System.out.println("The membership values to its fuzzy sets:");
+        //             for (int j = 0; j < testSystem.getSystemVariables().get(i).getFuzzySets().size(); j++){
+        //                 System.out.println(testSystem.getSystemVariables().get(i).getFuzzySets().get(j).getName() + ": " + testSystem.getSystemVariables().get(i).getFuzzySets().get(j).getMembership());
+        //             }
+        //             System.out.println();
+        // }
 
         Inference.applyRules(testSystem);
         Defuzzifier.calcCentroids(testSystem);

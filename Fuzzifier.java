@@ -1,20 +1,16 @@
 import java.util.ArrayList;
 
-public class Fuzzifier {
-    ArrayList <Variable> fuzzifiables = new ArrayList<>();
-
-    public Fuzzifier(ArrayList<Variable> fuzz) {
-        fuzzifiables = fuzz;
-    }
-
-    public float calculateGraphRule (float AX, float AY, float BX, float BY, int x){
+public abstract class Fuzzifier {
+    public static float calculateGraphRule (float AX, float AY, float BX, float BY, int x){
         float m = (BY - AY) / (BX - AX);
         float c = AY - (m * AX);
         float y = (m * x) + c;
         return y;
     }
 
-    public ArrayList <Variable> calculateMembership(){
+    public static FuzzySystem calculateMembership(FuzzySystem FS){
+        ArrayList <Variable> fuzzifiables = new ArrayList<>();
+        fuzzifiables = FS.getSystemVariables();
         for (Variable f : fuzzifiables){
             if (f.getType() == true){                                    //ensuring it's an input variable
                 for (int i = 0; i < f.getFuzzySets().size(); i++){
@@ -37,6 +33,7 @@ public class Fuzzifier {
                 }
             }
         }
-        return fuzzifiables;
+        FS.setSystemVariables(fuzzifiables);
+        return FS;
     }
 }
