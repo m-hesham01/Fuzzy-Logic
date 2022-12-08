@@ -47,6 +47,17 @@ public class FuzzySystem {
     public void startFuzzification(){
         Fuzzifier fazfoz = new Fuzzifier(systemVars);
         systemVars = fazfoz.calculateMembership();
+
+
+        //TESTING
+        for (int i = 0; i < systemVars.size(); i++){
+            System.out.println("The crisp value for the variable " + systemVars.get(i).getName() + " is " + systemVars.get(i).getCrispValue());
+            System.out.println("The membership values to its fuzzy sets:");
+            for (int j = 0; j < systemVars.get(i).getFuzzySets().size(); j++){
+                System.out.println(systemVars.get(i).getFuzzySets().get(j).getName() + ": " + systemVars.get(i).getFuzzySets().get(j).getMembership());
+            }
+            System.out.println();
+        }
     }
 
 }
