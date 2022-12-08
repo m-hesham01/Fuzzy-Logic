@@ -44,7 +44,7 @@ public class FuzzySet {
         }
     }
 
-    public void setN(){         //TODO: add invalidity check later... maybe in parser??
+    public void setN(){
         if (type == "tri"){
             N = 3;
         }

@@ -29,12 +29,15 @@ public abstract class Inference {
         return result;
     }
 
-    public static void applyRules(FuzzySystem s) {
+    public static FuzzySystem applyRules(FuzzySystem s) {
         ArrayList<Rule> systemRules = s.getSystemRules();
+        ArrayList<Rule> tempRules = new ArrayList<>();
         for (int i = 0; i < systemRules.size(); i++) { // loop over all rules
             Rule tempRule = systemRules.get(i);
-            tempRule.outVarSet.membership = calcRule(tempRule);
-            System.out.println(tempRule.outVarSet.membership);
+            tempRule.outVarSet.membership = Math.max(calcRule(tempRule), tempRule.outVarSet.membership);
+            tempRules.add(tempRule);
         }
+        s.setSystemRules(tempRules);
+        return s;
     }
 }
