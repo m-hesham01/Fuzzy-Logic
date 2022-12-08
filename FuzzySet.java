@@ -2,7 +2,7 @@ public class FuzzySet {
     String name;
     String type;
     int N;                              //size of the Values[] array... 3 if type=TRI and 4 if type =TRAP
-    int Values[];
+    float Values[];
     float membership;
 
     public FuzzySet() {}
@@ -10,7 +10,7 @@ public class FuzzySet {
         this.name = name;
         this.type = type;
         setN();
-        Values = new int[N];
+        Values = new float[N];
         for (int i=0; i< N; i++){
             Values[i] = V[i];
         }
@@ -32,13 +32,13 @@ public class FuzzySet {
         this.type = type;
     }
 
-    public int[] getValues(){
+    public float[] getValues(){
         return Values;
     }
 
     public void setValues(int V[]){
         setN();
-        Values = new int[N];
+        Values = new float[N];
         for (int i=0; i< N; i++){
             Values[i] = V[i];
         }

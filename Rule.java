@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class Rule {
     Variable firstInVar;
     Variable secondInVar;

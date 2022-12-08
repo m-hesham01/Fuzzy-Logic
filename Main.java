@@ -61,16 +61,24 @@ public class Main {
         Rule r2 = new Rule("proj_funding", "medium", "and", "exp_level", "intermediate", "risk", "normal", V);
         Rule r3 = new Rule("proj_funding", "medium", "and", "exp_level", "beginner", "risk", "normal", V);
         Rule r4 = new Rule("proj_funding", "low", "and", "exp_level", "beginner", "risk", "high", V);
-        Rule r5 = new Rule("proj_funding", "very_low", "and", "exp_level", "expert", "risk", "high", V);
+        Rule r5 = new Rule("proj_funding", "very_low", "and_not", "exp_level", "expert", "risk", "high", V);
         R.add(r1);
         R.add(r2);
         R.add(r3);
         R.add(r4);
         R.add(r5);
 
+        ArrayList<Variable> outVar = new ArrayList<>();
+        outVar.add(var3);
+
         testSystem.setSystemVariables(V);
         testSystem.setSystemRules(R);
 
+        testSystem.outputVars = outVar;
+
         testSystem.startFuzzification();
+
+        Inference.applyRules(testSystem);
+        Defuzzifier.calcCentroids(testSystem);
     }
 }
