@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class FuzzySystem {
@@ -7,9 +8,11 @@ public class FuzzySystem {
     ArrayList <Rule> systemRules = new ArrayList<>();
 
     public FuzzySystem () {}
-    public FuzzySystem (String name, String desc) {
+    public FuzzySystem (String name, String desc, Parser parser) throws FileNotFoundException {
         this.name = name;
         this.desc = desc;
+        ArrayList<ArrayList<ArrayList<String>>> data= parser.parse();
+
     }
 
     public String getName() {
