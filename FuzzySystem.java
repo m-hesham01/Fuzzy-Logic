@@ -107,17 +107,13 @@ public class FuzzySystem {
     }
 
     public void produceOutput(String sPath) throws IOException{
-        try {
-            Path path = Path.of(sPath);
-            String text = "";
-            for (Variable v : systemVars){
-                if (v.getType() == false){
-                    text = text + v.getName() + " is " + v.getBelongsTo().getName() + " and has a crisp value of " + v.getCrispValue() + "\n";
-                    Files.writeString(path, text);
-                }
+        Path path = Path.of(sPath);
+        String text = "";
+        for (Variable v : systemVars){
+            if (v.getType() == false){
+                text = text + v.getName() + " is " + v.getBelongsTo().getName() + " and has a crisp value of " + v.getCrispValue() + "\n";
+                Files.writeString(path, text);
             }
-        } catch (Exception e) {
-            System.err.println(e);
         }
     }
 }
