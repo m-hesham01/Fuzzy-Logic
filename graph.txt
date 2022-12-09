@@ -1,0 +1,6 @@
+moisture true 50.0 4 TRAP dry 0.0 0.0 10.0 30.0 moderate 10.0 30.0 40.0 60.0 damp 40.0 60.0 70.0 90.0 wet 70.0 90.0 100.0 100.0
+light true 40.0 2 TRAP dim 0.0 0.0 25.0 75.0 bright 25.0 75.0 100.0 100.0
+temp true 22.0 3 TRI cold 10.0 10.0 20.0 warm 15.0 20.0 25.0 hot 20.0 30.0 30.0
+sprinkler false 59.52381 3 TRI low 0.0 0.0 50.0 medium 25.0 50.0 75.0 high 50.0 100.0 100.0 "sprinkler is medium and has a crisp value of 59.52381"
+bulb false 32.05128 3 TRI low 0.0 0.0 50.0 medium 25.0 50.0 75.0 high 50.0 100.0 100.0 "bulb is low and has a crisp value of 32.05128"
+heater false 40.47619 3 TRI low 0.0 0.0 50.0 medium 25.0 50.0 75.0 high 50.0 100.0 100.0 "heater is medium and has a crisp value of 40.47619"

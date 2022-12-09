@@ -116,4 +116,28 @@ public class FuzzySystem {
             }
         }
     }
+
+    public void produceGraphFile(String gpath) throws IOException{
+        Path path = Path.of(gpath);
+        String text = "";
+        for (Variable v : systemVars){
+            String message = "";
+            String setsValues = "";
+                for (int i = 0; i < v.getFuzzySets().size(); i++){
+                    setsValues = setsValues + " " + v.getFuzzySets().get(i).getName();
+                    for (int j = 0; j < v.getFuzzySets().get(i).getArraySize(); j++){
+                        setsValues = setsValues + " " + v.getFuzzySets().get(i).getValues()[j];
+                    }
+                }
+            if(v.getType() == true){
+                text = text + v.getName() + " " + v.getType() + " " + v.getCrispValue() + " " + v.getFuzzySets().size() + " " + v.getFuzzySets().get(0).getType() + setsValues + "\n";
+                Files.writeString(path, text);
+            }
+            else{
+                message = "\"" + message + v.getName() + " is " + v.getBelongsTo().getName() + " and has a crisp value of " + v.getCrispValue() +"\"";
+                text = text + v.getName() + " " + v.getType() + " " + v.getCrispValue() + " " + v.getFuzzySets().size() + " " + v.getFuzzySets().get(0).getType() + setsValues + " " + message +"\n";
+                Files.writeString(path, text);
+            }
+        }
+    }
 }
