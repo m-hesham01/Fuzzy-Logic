@@ -38,4 +38,21 @@ public abstract class Fuzzifier {
         }
         return fuzzifiables;
     }
+
+    public static ArrayList<Variable> specifySet(ArrayList<Variable> fuzzifiables){
+        for (Variable o : fuzzifiables){
+            if (o.getType() == false){
+                int maxIndex = -1;
+                float maxMembership = 0;
+                for (int i = 0; i < o.getFuzzySets().size(); i++){
+                    if(o.getFuzzySets().get(i).getMembership() >= maxMembership){
+                        maxIndex = i;
+                        maxMembership = o.getFuzzySets().get(i).getMembership();
+                    }
+                }
+                o.setBelongsTo(o.getFuzzySets().get(maxIndex));
+            }
+        }
+        return fuzzifiables;
+    }
 }

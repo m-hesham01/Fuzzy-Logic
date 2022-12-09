@@ -1,0 +1,3 @@
+sprinkler is medium and has a crisp value of 59.52381
+bulb is low and has a crisp value of 32.05128
+heater is medium and has a crisp value of 40.47619

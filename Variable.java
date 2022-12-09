@@ -7,6 +7,7 @@ public class Variable {
     int upperBound;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
     float crispValue;
+    FuzzySet belongsTo;
 
     public Variable() {}
     public Variable (String name, String type, int lowerBound, int upperBound) {
@@ -68,6 +69,13 @@ public class Variable {
 
     public void setCrispValue(float crispValue) {
         this.crispValue = crispValue;
+    }
+
+    public FuzzySet getBelongsTo() {
+        return belongsTo;
+    }
+    public void setBelongsTo(FuzzySet belongsTo) {
+        this.belongsTo = belongsTo;
     }
 
 }

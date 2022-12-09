@@ -1,4 +1,7 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class FuzzySystem {
@@ -97,5 +100,24 @@ public class FuzzySystem {
 
     public void defuzzify(){
         systemVars = Defuzzifier.defuzzifyOutput(systemVars);
+    }
+
+    public void determineOutputs(){
+        systemVars = Fuzzifier.specifySet(systemVars);
+    }
+
+    public void produceOutput(String sPath) throws IOException{
+        try {
+            Path path = Path.of(sPath);
+            String text = "";
+            for (Variable v : systemVars){
+                if (v.getType() == false){
+                    text = text + v.getName() + " is " + v.getBelongsTo().getName() + " and has a crisp value of " + v.getCrispValue() + "\n";
+                    Files.writeString(path, text);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 }
