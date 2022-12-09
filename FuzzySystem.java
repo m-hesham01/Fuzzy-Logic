@@ -120,6 +120,7 @@ public class FuzzySystem {
     public void produceGraphFile(String gpath) throws IOException{
         Path path = Path.of(gpath);
         String text = "";
+        text = systemVars.size() + "\n";
         for (Variable v : systemVars){
             String message = "";
             String setsValues = "";
