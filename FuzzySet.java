@@ -3,7 +3,7 @@ public class FuzzySet {
     String type;
     int N;                              //size of the Values[] array... 3 if type=TRI and 4 if type =TRAP
     float Values[];
-    float membership;
+    float membership = 0;
     float centroid;
 
     public FuzzySet() {}

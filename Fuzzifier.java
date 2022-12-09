@@ -8,9 +8,7 @@ public abstract class Fuzzifier {
         return y;
     }
 
-    public static FuzzySystem calculateMembership(FuzzySystem FS){
-        ArrayList <Variable> fuzzifiables = new ArrayList<>();
-        fuzzifiables = FS.getSystemVariables();
+    public static ArrayList<Variable> calculateMembership(ArrayList<Variable> fuzzifiables){
         for (Variable f : fuzzifiables){
             if (f.getType() == true){                           //ensuring it's an input variable
                 if (f.getCrispValue() == f.getUpperBound()){    //if upper border value, membership to the last set = 1
@@ -38,7 +36,6 @@ public abstract class Fuzzifier {
                 }
             }
         }
-        FS.setSystemVariables(fuzzifiables);
-        return FS;
+        return fuzzifiables;
     }
 }

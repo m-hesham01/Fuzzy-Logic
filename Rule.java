@@ -54,4 +54,60 @@ public class Rule {
 
     }
 
+    public Variable getFirstInVar() {
+        return firstInVar;
+    }
+
+    public void setFirstInVar(Variable firstInVar) {
+        this.firstInVar = firstInVar;
+    }
+
+    public Variable getSecondInVar() {
+        return secondInVar;
+    }
+
+    public void setSecondInVar(Variable secondInVar) {
+        this.secondInVar = secondInVar;
+    }
+
+    public Variable getOutVar() {
+        return outVar;
+    }
+
+    public void setOutVar(Variable outVar) {
+        this.outVar = outVar;
+    }
+
+    public FuzzySet getFirstVarSet() {
+        return firstVarSet;
+    }
+
+    public void setFirstVarSet(FuzzySet firstVarSet) {
+        this.firstVarSet = firstVarSet;
+    }
+
+    public FuzzySet getSecondVarSet() {
+        return secondVarSet;
+    }
+
+    public void setSecondVarSet(FuzzySet secondVarSet) {
+        this.secondVarSet = secondVarSet;
+    }
+
+    public FuzzySet getOutVarSet() {
+        return outVarSet;
+    }
+
+    public void setOutVarSet(FuzzySet outVarSet) {
+        this.outVarSet = outVarSet;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
 }

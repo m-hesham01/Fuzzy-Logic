@@ -1,0 +1,49 @@
+VARS
+6
+moisture IN 0 100
+4
+dry TRAP 0 0 10 30
+moderate TRAP 10 30 40 60
+damp TRAP 40 60 70 90
+wet TRAP 70 90 100 100
+CRISP 50
+light IN 0 100
+2
+dim TRAP 0 0 25 75
+bright TRAP 25 75 100 100
+CRISP 40
+temp IN 10 30
+3
+cold TRI 10 10 20
+warm TRI 15 20 25
+hot TRI 20 30 30
+CRISP 22
+sprinkler OUT 0 100
+3
+low TRI 0 0 50
+medium TRI 25 50 75
+high TRI 50 100 100
+bulb OUT 0 100
+3
+low TRI 0 0 50
+medium TRI 25 50 75
+high TRI 50 100 100
+heater OUT 0 100
+3
+low TRI 0 0 50
+medium TRI 25 50 75
+high TRI 50 100 100
+RULES
+12
+moisture wet or temp cold => sprinkler low
+moisture dry and temp cold => sprinkler medium
+moisture moderate and temp warm => sprinkler medium
+moisture dry or temp hot => sprinkler high
+light dim or temp hot => bulb low
+light bright and_not temp cold => bulb low
+light dim and temp warm => bulb medium
+light dim and temp cold => bulb high
+temp hot or moisture dry => heater low
+temp warm and moisture moderate => heater medium
+temp cold and moisture dry => heater medium
+temp cold or moisture wet => heater high

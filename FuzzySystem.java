@@ -48,8 +48,8 @@ public class FuzzySystem {
                     }
                     this.systemVars.add(variable);
                 } else if (i==1) {//rules
-                    Rule rule = new Rule(typedData.get(0),typedData.get(1),typedData.get(2),typedData.get(3),typedData.get(4),typedData.get(6),typedData.get(7),this.systemVars);
-                    this.addSystemRules(rule);
+                    Rule rule = new Rule(typedData.get(0),typedData.get(1),typedData.get(2),typedData.get(3),typedData.get(4),typedData.get(6),typedData.get(7), systemVars);
+                    systemRules.add(rule);
                 }
             }
         }
@@ -86,7 +86,16 @@ public class FuzzySystem {
     public void setSystemRules (ArrayList<Rule> R) {
         systemRules = R;
     }
-    public void addSystemRules(Rule rule){
-        this.systemRules.add(rule);
+
+    public void fuzzifyInput(){
+        systemVars = Fuzzifier.calculateMembership(systemVars);
+    }
+
+    public void infer(){
+        systemRules = Inference.applyRules(systemRules);
+    }
+
+    public void defuzzify(){
+        systemVars = Defuzzifier.defuzzifyOutput(systemVars);
     }
 }

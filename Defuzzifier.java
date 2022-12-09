@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 
 public abstract class Defuzzifier {
-    public static FuzzySystem defuzzifyOutput(FuzzySystem s){
-        ArrayList<Variable> tempVariables = new ArrayList<>();
-        tempVariables = s.getSystemVariables();
+    public static ArrayList<Variable> defuzzifyOutput(ArrayList<Variable> tempVariables){
         for (Variable v : tempVariables){
             if (v.getType() == false){
                 float sumNum = 0;
@@ -16,7 +14,6 @@ public abstract class Defuzzifier {
                 v.setCrispValue(tempCrisp);
             }
         }
-        s.setSystemVariables(tempVariables);
-        return s;
+        return tempVariables;
     }
 }
