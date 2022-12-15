@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 
 public class Variable {
+    //input parameters
     String name;
-    boolean type;
+    boolean type;       // input variables = true... output variables = false
     int lowerBound;
     int upperBound;
     ArrayList <FuzzySet> fuzzySets = new ArrayList<>();
     float crispValue;
+
+    //for outputs variables only: specifies the "winner" fuzzy set with the highest membership value
     FuzzySet belongsTo;
 
     public Variable() {}

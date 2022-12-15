@@ -28,6 +28,7 @@ public abstract class Inference {
         return result;
     }
 
+    //sets membership values to OUT variables according to the given set of rules
     public static ArrayList<Rule> applyRules(ArrayList<Rule> systemRules) {
         ArrayList<Rule> tempRules = new ArrayList<>();
         for (int i = 0; i < systemRules.size(); i++) { // loop over all rules

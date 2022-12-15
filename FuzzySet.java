@@ -3,8 +3,8 @@ public class FuzzySet {
     String type;
     int N;                              //size of the Values[] array... 3 if type=TRI and 4 if type =TRAP
     float Values[];
-    float membership = 0;
-    float centroid;
+    float membership = 0;               //the membership value of its parent variable. 0 by default until modified by fuzzifier for IN vars or by inference engine for OUT vars
+    float centroid;                     //the centroid value of each fuzzy set, calculation below in setter
 
     public FuzzySet() {}
     public FuzzySet(String name, String type, float V[]) {

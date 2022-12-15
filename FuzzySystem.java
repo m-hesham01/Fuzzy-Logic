@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class FuzzySystem {
     String name;
     String desc;
-    ArrayList <Variable> systemVars = new ArrayList<>();
-    ArrayList <Rule> systemRules = new ArrayList<>();
+    ArrayList <Variable> systemVars = new ArrayList<>();    //holds all of the system variables and their fuzzy sets within
+    ArrayList <Rule> systemRules = new ArrayList<>();       //holds all of the system rules
 
     public FuzzySystem () {}
     public FuzzySystem (String name, String desc, Parser parser) throws FileNotFoundException {
